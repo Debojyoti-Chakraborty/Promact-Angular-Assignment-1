@@ -1,0 +1,67 @@
+<div class="container">
+    <h1 style="text-align:center">{{header}}</h1>
+    <br>
+    <br>
+    <form #form="ngForm" novalidate>
+     <div class="form-group" style="width:30%">
+        <label>First Name</label>
+        <input type="text" class="form-control" id="fname" name="fname" ngModel>
+     </div>
+     <div class="form-group" style="width:30%">
+        <label>Last Name</label>
+        <input type="text" class="form-control" id="lname" name="lname" ngModel>
+    </div>
+    <div class="form-group" style="width:30%">
+            <label for="email">Email:</label>
+			<input class="form-control" type="email" id="email">
+    </div>
+    <div class="form-group" style="width:30%">
+			<label for="cnum">Contact Number:</label>
+			<input class="form-control" type="text" id="cnum">
+    </div>
+    <div class="form-group" style="width:30%">
+			<label for="address">Address</label>
+			<textarea class="form-control" id="address"></textarea>
+    </div>
+    <div class="form-group" style="width:30%">
+			<label for="uname">Username:</label>
+			<input class="form-control" type="text" id="uname">
+    </div>
+    <div class="form-group" style="width:30%">
+			<label for="pwd">Password:</label>
+			<input class="form-control" type="password" id="pwd">
+    </div>
+    <div class="radio" style="width:30%">
+        <label>Gender:</label><br>
+			<input  type="radio" id="rmale" name="gender" value="Male"><label for="rmale"> Male</label><br>
+			<input  type="radio" id="rfemale" name="gender" value="Female"><label for="rfemale"> Female</label><br><br>
+    </div>
+    <div class="form-group" style="width:30%">
+        <label>Qualifications:</label><br>
+			<select class="form-control" id="qualification" name="qualification">
+			<option *ngFor="let qual of qualifications">
+                {{ qual }}
+			</option>
+			</select>
+    </div>
+    <div class="form-group" style="width:30%">
+        <label>Experience:</label><br>
+			<select class="form-control" id="experience" name="experience">
+			<option *ngFor="let exp of experience">
+                {{ exp }}
+			</option>
+			</select>
+
+    </div>
+    <div class="checkbox" style="width:30%">
+        <label>Coding Languages known:</label><br>
+            <ng-container *ngFor="let lang of languages">
+            <label>
+            <input type="checkbox" name="ibox" >
+            {{ lang }}
+            </label>
+            <br>
+            </ng-container>
+    </div>
+    </form>
+</div>
