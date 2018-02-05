@@ -7,9 +7,9 @@ import { Employee } from "./employee.model";
 
 export class EmpComponent implements OnInit{
     header: string = 'Employee Form';
-    qualifications =['Class X', 'Class XII', 'Btech', 'Mtech'];
-    experience=['0-1', '2-5','6-9','10+'];
-    languages=['C/C++','Java', 'C#', 'PHP', 'Python'];
+    qualifications =[];
+    experience=[];
+    languages=[];
     
     model=new Employee('','','','','','','','Male','Class X','0-1',[]);
     
@@ -24,6 +24,12 @@ export class EmpComponent implements OnInit{
         console.log(model);
     }
     ngOnInit(): void{
-    console.log("Initialised");
+        this.initializeArrays();
+    console.log("Initialised Arrays");
+    }
+    initializeArrays():void{
+        this.qualifications =['Class X', 'Class XII', 'Btech', 'Mtech'];
+        this.experience=['0-1', '2-5', '6-9', '10+'];
+        this.languages=['C/C++', 'Java', 'C#', 'PHP', 'Python'];
     }
 }
