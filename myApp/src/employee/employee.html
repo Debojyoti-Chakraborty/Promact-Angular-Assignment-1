@@ -5,40 +5,40 @@
     <form #form="ngForm" novalidate>
      <div class="form-group" style="width:30%">
         <label>First Name</label>
-        <input type="text" class="form-control" id="fname" name="fname" ngModel>
+        <input type="text" class="form-control" id="fname"  [(ngModel)]="model.firstName" name="fname">
      </div>
      <div class="form-group" style="width:30%">
         <label>Last Name</label>
-        <input type="text" class="form-control" id="lname" name="lname" ngModel>
+        <input type="text" class="form-control" id="lname" [(ngModel)]="model.lastName"  name="lname">
     </div>
     <div class="form-group" style="width:30%">
             <label for="email">Email:</label>
-			<input class="form-control" type="email" id="email">
+			<input class="form-control" type="email" id="email" [(ngModel)]="model.email" name="email">
     </div>
     <div class="form-group" style="width:30%">
 			<label for="cnum">Contact Number:</label>
-			<input class="form-control" type="text" id="cnum">
+			<input class="form-control" type="text" id="cnum" [(ngModel)]="model.contactNumber" name="cnum">
     </div>
     <div class="form-group" style="width:30%">
 			<label for="address">Address</label>
-			<textarea class="form-control" id="address"></textarea>
+			<textarea class="form-control" id="address" [(ngModel)]="model.address" name="address"></textarea>
     </div>
     <div class="form-group" style="width:30%">
 			<label for="uname">Username:</label>
-			<input class="form-control" type="text" id="uname">
+			<input class="form-control" type="text" id="uname" [(ngModel)]="model.userName" name="uname">
     </div>
     <div class="form-group" style="width:30%">
 			<label for="pwd">Password:</label>
-			<input class="form-control" type="password" id="pwd">
+			<input class="form-control" type="password" id="pwd" [(ngModel)]="model.password" name="pwd">
     </div>
     <div class="radio" style="width:30%">
         <label>Gender:</label><br>
-			<input  type="radio" id="rmale" name="gender" value="Male"><label for="rmale"> Male</label><br>
-			<input  type="radio" id="rfemale" name="gender" value="Female"><label for="rfemale"> Female</label><br><br>
+			<input  type="radio" id="rmale" [(ngModel)]="model.gender" name="gender" value="Male"><label for="rmale"> Male</label><br>
+			<input  type="radio" id="rfemale" [(ngModel)]="model.gender" name="gender" value="Female"><label for="rfemale"> Female</label><br><br>
     </div>
     <div class="form-group" style="width:30%">
         <label>Qualifications:</label><br>
-			<select class="form-control" id="qualification" name="qualification">
+			<select class="form-control" id="qualification" [(ngModel)]="model.qualification" name="qualification">
 			<option *ngFor="let qual of qualifications">
                 {{ qual }}
 			</option>
@@ -46,7 +46,7 @@
     </div>
     <div class="form-group" style="width:30%">
         <label>Experience:</label><br>
-			<select class="form-control" id="experience" name="experience">
+			<select class="form-control" id="experience" [(ngModel)]="model.experience" name="experience">
 			<option *ngFor="let exp of experience">
                 {{ exp }}
 			</option>
@@ -57,11 +57,20 @@
         <label>Coding Languages known:</label><br>
             <ng-container *ngFor="let lang of languages">
             <label>
-            <input type="checkbox" name="ibox" >
+            <input type="checkbox"
+                           name="languages"
+                           value="{{lang}}"
+                           (change)='pushLang(lang,model)'>
             {{ lang }}
             </label>
             <br>
             </ng-container>
     </div>
+    <br>
+    <br>
+    <button class="btn btn-primary" value="submit" (click)='displayObj(model)'>
+        Submit
+    </button>
     </form>
+      Model :{{model | json}}
 </div>
