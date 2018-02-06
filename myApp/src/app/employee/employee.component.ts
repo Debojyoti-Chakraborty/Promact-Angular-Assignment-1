@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Employee } from "./employee.model";
 @Component({
-    selector:'emp',
     templateUrl:'./employee.html'
 })
 
