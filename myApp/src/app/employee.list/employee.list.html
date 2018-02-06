@@ -3,7 +3,8 @@
     <tr *ngFor="let emp of data">
         <td>{{emp.firstName}}</td> 
         <td>{{emp.lastName}}</td>
-        <td><button (click)="delrec(emp)">Delete</button></td>
+        <td><button (click)="delrec(emp,0)">Delete</button></td>
         <td><button (click)="editrec(emp,'/edit')">Edit</button></td>
    </tr>
 </table>
+<button class="btn btn-primary" (click)="redir('/add')">Add Employee</button>
