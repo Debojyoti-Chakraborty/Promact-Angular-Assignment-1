@@ -10,7 +10,7 @@ export class Employee{
     public gender:string,
     public qualification:string,
     public experience:string,
-    public languages: {},
+    public languages: {}
             
     )
     {
