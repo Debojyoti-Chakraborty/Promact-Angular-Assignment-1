@@ -1,10 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 import { Employee } from "./employee.model";
+import { EmpListComponent } from "../employee.list/employee.list.component";
+
+import { Router }         from '@angular/router';
+import { SharingService } from '../app.sharing.service';
+
+
 @Component({
     templateUrl:'./employee.html'
 })
 
 export class EmpComponent implements OnInit{
+    data:any;
     header: string = 'Employee Form';
     qualifications =[];
     experience=[];
@@ -12,6 +19,16 @@ export class EmpComponent implements OnInit{
     
     model=new Employee('','','','','','','','Male','Class X','0-1',[]);
     
+     constructor(private router:Router,
+        private sharingService:SharingService){}
+
+        displayObj(model, url:string){
+            this.data=model;
+        this.sharingService.setData(this.data);
+        this.router.navigate([url]);
+    }
+
+
     pushLang(lang,model):void{
         if(model.languages.indexOf(lang)==-1)
         model.languages.push(lang);
@@ -19,9 +36,7 @@ export class EmpComponent implements OnInit{
         model.languages.splice(model.languages.indexOf(lang),1)
     }
 
-    displayObj(model): void{
-        console.log(model);
-    }
+   
     ngOnInit(): void{
         this.initializeArrays();
     console.log("Initialised Arrays");
