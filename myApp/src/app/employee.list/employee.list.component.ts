@@ -18,8 +18,10 @@ export class EmpListComponent implements OnInit{
         console.log(this.data);
     }
     delrec(emp):void{
-        this.sharingService.deldata(emp);
-        this.data=this.sharingService.getData();
+        if (window.confirm("Are You Sure You Want to delete This Record?")) {
+            this.sharingService.deldata(emp);
+            this.data=this.sharingService.getData();
+        }
     }
     editrec(emp,url:string):void{
         this.sharingService.setObj(emp);
