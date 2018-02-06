@@ -6,20 +6,25 @@ import { SharingService } from './app.sharing.service';
 import { AppComponent } from './app.component';
 import { EmpComponent } from './employee/employee.component';
 import { EmpListComponent } from './employee.list/employee.list.component';
+import { EmpEditComponent } from './employeeEdit/employeeEdit.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     EmpComponent,
-    EmpListComponent
+    EmpListComponent,
+    EmpEditComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot([
         { path: 'add', component: EmpComponent },
-        { path: 'list', component: EmpListComponent }
+        { path: 'list', component: EmpListComponent },
+        { path: 'edit', component: EmpEditComponent },
+        { path: '', redirectTo: 'list', pathMatch: 'full'}
     ])
   ],
   providers: [SharingService],
