@@ -3,6 +3,7 @@ import { Employee } from '../employee/employee.model';
 import { SharingService } from '../app.sharing.service';
 import { Router }         from '@angular/router';
 @Component({
+    
     templateUrl:'./employee.list.html'
 })
 export class EmpListComponent implements OnInit{

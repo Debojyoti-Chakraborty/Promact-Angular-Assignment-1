@@ -10,13 +10,16 @@ import { Employee } from "../employee/employee.model";
 
 export class EmpEditComponent implements OnInit{
 
-    model=new Employee('','','','','','','','Male','Class X','0-1',[]);
-
+    model: any;
+    qualifications=[];
+    experience=[];
+    languages=[];
      constructor(private router:Router,
         private sharingService:SharingService){}
 
         ngOnInit(){
-        this.model=this.sharingService.getObj();
+            this.initializeArrays();
+            this.model=this.sharingService.getObj();
         
     }
 
@@ -25,5 +28,9 @@ export class EmpEditComponent implements OnInit{
         this.sharingService.setData(this.model);
         this.router.navigate([url]);
     }
-
+    initializeArrays():void{
+        this.qualifications =['Class X', 'Class XII', 'Btech', 'Mtech'];
+        this.experience=['0-1', '2-5', '6-9', '10+'];
+        this.languages=['C/C++', 'Java', 'C#', 'PHP', 'Python'];
+    }
 }
