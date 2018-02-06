@@ -14,11 +14,16 @@ export class EmpListComponent implements OnInit{
         private sharingService:SharingService){}
 
     ngOnInit(){
-        this.data=this.sharingService.getData());
+        this.data=this.sharingService.getData();
         console.log(this.data);
     }
     delrec(emp):void{
         this.sharingService.deldata(emp);
-        this.data=this.sharingService.getData());
+        this.data=this.sharingService.getData();
+    }
+    editrec(emp,url:string):void{
+        this.sharingService.setObj(emp);
+        this.delrec(emp);
+        this.router.navigate([url]);
     }
 }
