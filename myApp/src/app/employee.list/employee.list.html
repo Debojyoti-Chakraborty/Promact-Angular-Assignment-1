@@ -1,8 +1,35 @@
 <h5>Employee List</h5>
-<table *ngIf="data?.length > 0" style="cellpadding=10px">
+<table class="table" *ngIf="data?.length > 0">
+    <tr >
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Contact Number</th>
+        <th>Address</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Gender</th>
+        <th>Qualification</th>
+        <th>Experience</th>
+        <th>Languages</th>
+        <th>Delete Button</th>
+        <th>Edit Button</th>
+
+    </tr>
+
     <tr *ngFor="let emp of data">
         <td>{{emp.firstName}}</td> 
         <td>{{emp.lastName}}</td>
+        <td>{{emp.email}}</td> 
+        <td>{{emp.contactNumber}}</td>
+        <td>{{emp.address}}</td> 
+        <td>{{emp.userName}}</td>
+        <td>{{emp.password}}</td> 
+        <td>{{emp.gender}}</td>
+        <td>{{emp.qualification}}</td> 
+        <td>{{emp.experience}}</td>
+        <td>{{emp.languages}}</td> 
+    
         <td><button (click)="delrec(emp,0)">Delete</button></td>
         <td><button (click)="editrec(emp,'/edit')">Edit</button></td>
    </tr>
