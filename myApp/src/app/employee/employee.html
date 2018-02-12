@@ -59,8 +59,9 @@
             <input type="checkbox"
                            name="languages"
                            value="{{lang}}"
-                           (change)='pushLang(lang,model)'>
-            {{ lang }}
+                           [checked]="lang.isEnabled"
+                           (change)='pushLang(lang.name,model)'>
+            {{ lang.name }}
             </label>
             <br>
             </ng-container>

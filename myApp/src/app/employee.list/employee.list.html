@@ -28,7 +28,7 @@
         <td>{{emp.gender}}</td>
         <td>{{emp.qualification}}</td> 
         <td>{{emp.experience}}</td>
-        <td>{{emp.languages}}</td> 
+        <td><ng-container *ngFor="let lang of emp.languages"><ng-container *ngIf="lang.isEnabled">{{lang.name}} </ng-container></ng-container></td> 
     
         <td><button (click)="delrec(emp,0)">Delete</button></td>
         <td><button (click)="editrec(emp,'/edit')">Edit</button></td>
