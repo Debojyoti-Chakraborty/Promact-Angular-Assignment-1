@@ -4,7 +4,7 @@ import { EmpListComponent } from "../employee.list/employee.list.component";
 
 import { Router }         from '@angular/router';
 import { SharingService } from '../app.sharing.service';
-
+import {Language} from "./employee.language"
 
 @Component({
     templateUrl:'./employee.html'
@@ -15,9 +15,9 @@ export class EmpComponent implements OnInit{
     header: string = 'Employee Form';
     qualifications =[];
     experience=[];
-    languages=[];
+    languages= new Array<Language>();
     
-    model=new Employee('','','','','','','','Male','Class X','0-1',[]);
+    model=new Employee('','','','','','','','Male','Class X','0-1',[{name:"C/C++", isEnabled:false}, {name:"Java", isEnabled:true}, {name:"C#", isEnabled:true}, {name:"PHP", isEnabled:false}, {name:"Python", isEnabled:false}]);
     
      constructor(private router:Router,
         private sharingService:SharingService){}
@@ -30,10 +30,7 @@ export class EmpComponent implements OnInit{
 
 
     pushLang(lang,model):void{
-        if(model.languages.indexOf(lang)==-1)
-        model.languages.push(lang);
-        else
-        model.languages.splice(model.languages.indexOf(lang),1)
+        model.languages[model.languages.findIndex(i=>i.name===lang)].isEnabled= !model.languages[model.languages.findIndex(i=>i.name===lang)].isEnabled;
     }
 
    
@@ -44,6 +41,6 @@ export class EmpComponent implements OnInit{
     initializeArrays():void{
         this.qualifications =['Class X', 'Class XII', 'Btech', 'Mtech'];
         this.experience=['0-1', '2-5', '6-9', '10+'];
-        this.languages=['C/C++', 'Java', 'C#', 'PHP', 'Python'];
+        this.languages=[{name:"C/C++", isEnabled:false}, {name:"Java", isEnabled:true}, {name:"C#", isEnabled:true}, {name:"PHP", isEnabled:false}, {name:"Python", isEnabled:false}];
     }
 }
